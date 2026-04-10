@@ -1,32 +1,40 @@
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-           int n = Integer.parseInt(scanner.nextLine());
-        String[] items = scanner.nextLine().split(" ");
+        Scanner sc = new Scanner(System.in);
 
-        ArrayList<String> list = new ArrayList<>();
+        // Check if there is input available to avoid errors
+        if (!sc.hasNextInt()) return;
 
+        // 1. Read the number of items
+        int n = sc.nextInt();
+        ArrayList<String> cart = new ArrayList<>();
+
+        // 2. Add items to the list
         for (int i = 0; i < n; i++) {
-            list.add(items[i]);
+            cart.add(sc.next());
         }
 
-        // Sort list
-        Collections.sort(list);
+        // 3. Read the item to search for
+        String searchItem = sc.next();
 
-        // Search item
-        String searchItem = scanner.nextLine();
+        // 4. Sort the items alphabetically
+        Collections.sort(cart);
 
-        // Output
-        System.out.println("Sorted Items: " + list);
+        // 5. Print the final sorted list
+        // ArrayList's toString() method matches the [Item1, Item2, ...] format
+        System.out.println("Sorted Items: " + cart);
 
-        if (list.contains(searchItem)) {
-            System.out.print("Found");
+        // 6. Check if the item exists and print the result
+        if (cart.contains(searchItem)) {
+            System.out.println("Found");
         } else {
-            System.out.print("Not Found");
+            System.out.println("Not Found");
         }
+
+        sc.close();
     }
 }
