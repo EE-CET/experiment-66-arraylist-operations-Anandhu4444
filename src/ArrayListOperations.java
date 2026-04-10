@@ -7,18 +7,15 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         int n = scanner.nextInt();
-        scanner.nextLine();
-
         ArrayList<String> items = new ArrayList<>();
 
-        String[] inputItems = scanner.nextLine().split(" ");
         for (int i = 0; i < n; i++) {
-            items.add(inputItems[i]);
+            items.add(scanner.next());
         }
 
-        Collections.sort(items);
+        String searchItem = scanner.next();
 
-        String searchItem = scanner.nextLine();
+        Collections.sort(items);
 
         System.out.println("Sorted Items: " + items);
 
