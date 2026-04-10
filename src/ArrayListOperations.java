@@ -5,26 +5,28 @@ import java.util.Scanner;
 public class ArrayListOperations {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+           int n = Integer.parseInt(scanner.nextLine());
+        String[] items = scanner.nextLine().split(" ");
 
-        int n = scanner.nextInt();
-        ArrayList<String> items = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            items.add(scanner.next());
+            list.add(items[i]);
         }
 
-        String searchItem = scanner.next();
+        // Sort list
+        Collections.sort(list);
 
-        Collections.sort(items);
+        // Search item
+        String searchItem = scanner.nextLine();
 
-        System.out.println("Sorted Items: " + items);
+        // Output
+        System.out.println("Sorted Items: " + list);
 
-        if (items.contains(searchItem)) {
-            System.out.println("Found");
+        if (list.contains(searchItem)) {
+            System.out.print("Found");
         } else {
-            System.out.println("Not Found");
+            System.out.print("Not Found");
         }
-
-        scanner.close();
     }
 }
